@@ -2,11 +2,13 @@
 
 This document is a simple note set for the current `App/data.json`.
 
-It is not a medical paper. Its purpose is to show how grounded the app's disease and vaccine probabilities are, where the app still simplifies things, and how those choices relate to the app's structure.
+It is not a medical paper. Its purpose is to show how grounded the app's disease and vaccine probabilities are, where the model simplifies available data, and how those choices affect the app's behavior.
 
 The data, wording, and source links in the app have also been manually reviewed. These notes describe the current state after that review, not an unfiltered draft dataset.
 
 ## Point System
+
+These scores are qualitative judgments based on source agreement, consistency across sources, and how much the app model reshapes the underlying data.
 
 ### Disease integrity
 
@@ -39,6 +41,7 @@ The data, wording, and source links in the app have also been manually reviewed.
 - This app is not trying to be a clinical tool. The goal is simpler: probabilities should feel grounded in reality.
 - Rare severe outcomes are often easier to ground than common illness buckets.
 - Common illness buckets are often the most simplified part of the app.
+- Many probabilities are simplified into discrete categories for clarity and consistency, and do not represent full clinical or population distributions.
 - `fatal outcome` should usually be read as a `global mixed setting` style value, not a strict high-income-only or outbreak-only number.
 - `environmental_hostility` is an app variable, not a direct official statistic.
 - `environmental_hostility` should be judged comparatively across diseases, not in isolation.

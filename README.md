@@ -23,7 +23,20 @@ Live site:
 - lets the user adjust community vaccine rate
 - simulates one vaccination outcome and one infection outcome with `Try your luck`
 - supports multiple diseases from a JSON dataset
-- supports English and Finnish localization
+- supports localization
+
+## Interpretation and Scope
+
+VaxVsBug is an educational comparison tool.
+
+It is designed to illustrate how:
+
+- infectious disease risk changes with community vaccination
+- disease outcomes compare with vaccine side-effect risk in a simplified scenario
+
+It does not provide real-world risk predictions or medical guidance.
+
+Disease risk in the app reflects population-level transmission dynamics, while vaccine side effects reflect individual-level probabilities. These are different types of risk, and the comparison is intended for exploration rather than decision-making.
 
 ## Tech Stack
 
@@ -94,7 +107,8 @@ The app uses a comparative scenario model.
 
 In particular:
 
-- `environmental_hostility` is an app-level spread-pressure value
+- `environmental_hostility` is an app-level composite variable that represents overall transmission pressure in the shared scenario
+- it combines multiple factors into a single value to keep the model intuitive and comparable across diseases
 - it is not a direct official metric
 - disease outcomes are simplified into a UI-friendly educational model
 - the data, wording, and source links have been manually reviewed

@@ -6,6 +6,7 @@ This document describes how `environmental_hostility` values are assigned in the
 
 It is not a direct scientific metric imported from one official source.
 It is a comparative app model informed by epidemiological concepts and official disease documentation.
+This parameter is a simplified abstraction. It does not map directly to a single epidemiological quantity such as `R0` or transmission rate, but is intended to approximate overall transmission pressure in a way that is comparable across diseases within the app.
 
 ## What This Model Represents
 
@@ -26,6 +27,8 @@ It is not intended to represent:
 - annual incidence
 - lifetime risk
 - one official published number
+
+To support comparison and interaction, these factors are intentionally collapsed into a single value. This simplifies the underlying dynamics and trades epidemiological detail for clarity and consistency across diseases.
 
 ## Shared Scenario
 
@@ -57,6 +60,7 @@ For the scored columns:
 
 This is not a strict mathematical formula.
 It is a structured comparative judgment.
+The scoring uses rough equal weighting as a starting point, with final values adjusted comparatively across diseases.
 
 Use this rough mapping:
 
@@ -65,6 +69,8 @@ Use this rough mapping:
 - mostly `3`s -> `0.30–0.50`
 - mostly `4`s -> `0.50–0.70`
 - near-maximum spread pressure -> `0.70+`
+
+The numeric ranges are chosen to preserve relative ordering and visible separation between diseases in the app, rather than to represent calibrated real-world probabilities.
 
 Important:
 
