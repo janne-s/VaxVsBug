@@ -85,7 +85,7 @@ http://localhost:8000/
 Example:
 
 ```txt
-http://localhost:8000/?lang=fi&disease=polio
+https://vaxvsbug.com/?lang=fi&disease=polio
 ```
 
 ## Data Notes
