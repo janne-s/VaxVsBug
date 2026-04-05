@@ -8,6 +8,10 @@ VaxVsBug is a static educational web app that compares:
 
 It is designed to be fast, lightweight, and easy to inspect or extend.
 
+Live site:
+
+- https://vaxvsbug.com
+
 ## Screenshot
 
 ![VaxVsBug screenshot](docs/VaxVsBug_screenshot.png)
