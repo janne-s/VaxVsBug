@@ -32,7 +32,7 @@ VaxVsBug is an educational comparison tool.
 It is designed to illustrate how:
 
 - infectious disease risk changes with community vaccination
-- disease outcomes compare with vaccine side-effect risk in a simplified scenario
+- disease outcomes compare alongside vaccine side-effect risk in a simplified scenario
 
 It does not provide real-world risk predictions or medical guidance.
 

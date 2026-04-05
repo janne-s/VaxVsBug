@@ -7,6 +7,7 @@ This document describes how `environmental_hostility` values are assigned in the
 It is not a direct scientific metric imported from one official source.
 It is a comparative app model informed by epidemiological concepts and official disease documentation.
 This parameter is a simplified abstraction. It does not map directly to a single epidemiological quantity such as `R0` or transmission rate, but is intended to approximate overall transmission pressure in a way that is comparable across diseases within the app.
+It can be loosely thought of as a normalized transmission-pressure proxy within the app.
 
 ## What This Model Represents
 
