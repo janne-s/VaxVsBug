@@ -1,0 +1,1429 @@
+{
+  "diseases": [
+    {
+      "category": "Childhood vaccines",
+      "slug": "measles",
+      "name": "Measles",
+      "environmental_hostility": 0.75,
+      "outcomes": [
+        {
+          "label": "Acute measles illness",
+          "short_label": "Acute illness",
+          "severity": "moderate",
+          "probability": 0.918,
+          "description": "Fever, rash, cough, conjunctivitis, and several days of substantial illness"
+        },
+        {
+          "label": "Hospitalization",
+          "short_label": "Hospitalization",
+          "severity": "hospitalization",
+          "probability": 0.08,
+          "description": "Illness severe enough to require hospital care"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.002,
+          "description": "Life-threatening measles complication"
+        }
+      ],
+      "long_term_effects": [
+        {
+          "label": "Delayed fatal neurological damage",
+          "short_label": "Neurological damage",
+          "severity": "fatal",
+          "probability": 0.0001,
+          "description": "Rare delayed complication such as SSPE"
+        },
+        {
+          "label": "Immune amnesia",
+          "short_label": "Immune amnesia",
+          "severity": "severe",
+          "probability": 0.15,
+          "description": "Measles can weaken immune memory and increase vulnerability to other infections for a prolonged period afterward"
+        }
+      ],
+      "vaccine": {
+        "name": "MMR",
+        "effectiveness": 0.97,
+        "outcomes": [
+          {
+            "label": "Temporary fever or rash",
+            "short_label": "Fever or rash",
+            "severity": "mild",
+            "probability": 0.15,
+            "description": "Usually short-lived and self-limited"
+          },
+          {
+            "label": "Febrile seizure",
+            "short_label": "Febrile seizure",
+            "severity": "moderate",
+            "probability": 0.00034,
+            "description": "Rare seizure associated with fever"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-05,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/measles/about/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/measles"
+          },
+          {
+            "institution": "EU",
+            "url": "https://vaccination-info.europa.eu/en/measles"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/measles/hcp/vaccine-considerations/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/conditions/vaccinations/mmr-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers/measles"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Childhood vaccines",
+      "slug": "pertussis",
+      "name": "Pertussis",
+      "environmental_hostility": 0.45,
+      "outcomes": [
+        {
+          "label": "Prolonged coughing illness",
+          "short_label": "Coughing illness",
+          "severity": "moderate",
+          "probability": 0.849,
+          "description": "Severe coughing fits that can last for weeks and disrupt sleep, eating, and breathing"
+        },
+        {
+          "label": "Hospitalization",
+          "short_label": "Hospitalization",
+          "severity": "hospitalization",
+          "probability": 0.15,
+          "description": "Serious disease requiring hospital care, especially in young children"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.001,
+          "description": "Life-threatening pertussis complication"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "DTaP",
+        "effectiveness": 0.98,
+        "outcomes": [
+          {
+            "label": "Soreness, swelling, or fever",
+            "short_label": "Soreness or fever",
+            "severity": "mild",
+            "probability": 0.25,
+            "description": "Common short-lived local reaction or fever"
+          },
+          {
+            "label": "Extended crying or high fever",
+            "short_label": "High fever",
+            "severity": "moderate",
+            "probability": 0.005,
+            "description": "Less common but still temporary reaction after vaccination"
+          },
+          {
+            "label": "Seizure related to fever",
+            "short_label": "Fever seizure",
+            "severity": "moderate",
+            "probability": 0.001,
+            "description": "Rare seizure associated with a high fever"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/pertussis/signs-symptoms/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/conditions/whooping-cough/"
+          },
+          {
+            "institution": "EU",
+            "url": "https://vaccination-info.europa.eu/en/pertussis"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/pertussis/vaccines/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/vaccinations/6-in-1-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/publications/i/item/WER8540"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Childhood vaccines",
+      "slug": "mumps",
+      "name": "Mumps",
+      "environmental_hostility": 0.35,
+      "outcomes": [
+        {
+          "label": "No noticeable symptoms",
+          "short_label": "No symptoms",
+          "severity": "mild",
+          "probability": 0.3,
+          "description": "Some mumps infections cause no obvious symptoms, but can still spread"
+        },
+        {
+          "label": "Swollen glands and fever illness",
+          "short_label": "Swollen glands",
+          "severity": "moderate",
+          "probability": 0.69,
+          "description": "Painful swelling of the salivary glands with fever, headache, and tiredness"
+        },
+        {
+          "label": "Meningitis or pancreatitis",
+          "short_label": "Meningitis",
+          "severity": "hospitalization",
+          "probability": 0.009,
+          "description": "Rare inflammation affecting the lining of the brain and spinal cord or the pancreas"
+        },
+        {
+          "label": "Brain inflammation or hearing loss",
+          "short_label": "Neurologic damage",
+          "severity": "severe",
+          "probability": 0.001,
+          "description": "Rare severe complication that can cause permanent disability"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "MMR",
+        "effectiveness": 0.86,
+        "outcomes": [
+          {
+            "label": "Temporary fever or rash",
+            "short_label": "Fever or rash",
+            "severity": "mild",
+            "probability": 0.15,
+            "description": "Usually short-lived and self-limited"
+          },
+          {
+            "label": "Febrile seizure",
+            "short_label": "Febrile seizure",
+            "severity": "moderate",
+            "probability": 0.00034,
+            "description": "Rare seizure associated with fever"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-05,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/mumps/about/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/conditions/mumps/"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/mumps/facts"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/vaccines/vpd/mmr/public/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/conditions/vaccinations/mmr-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/mumps"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Childhood vaccines",
+      "slug": "rubella",
+      "name": "Rubella",
+      "environmental_hostility": 0.3,
+      "outcomes": [
+        {
+          "label": "No noticeable symptoms",
+          "short_label": "No symptoms",
+          "severity": "mild",
+          "probability": 0.375,
+          "description": "Many rubella infections cause little or no noticeable illness, but can still spread"
+        },
+        {
+          "label": "Rash and fever illness",
+          "short_label": "Rash illness",
+          "severity": "moderate",
+          "probability": 0.6245,
+          "description": "Usually a mild rash illness with slight fever and swollen glands"
+        },
+        {
+          "label": "Bleeding complication",
+          "short_label": "Bleeding complication",
+          "severity": "hospitalization",
+          "probability": 0.00033,
+          "description": "Rare thrombocytopenic purpura or other bleeding complication"
+        },
+        {
+          "label": "Brain inflammation",
+          "short_label": "Encephalitis",
+          "severity": "severe",
+          "probability": 0.00017,
+          "description": "Rare encephalitis that can become life-threatening"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "MMR",
+        "effectiveness": 0.97,
+        "outcomes": [
+          {
+            "label": "Temporary fever or rash",
+            "short_label": "Fever or rash",
+            "severity": "mild",
+            "probability": 0.15,
+            "description": "Usually short-lived and self-limited"
+          },
+          {
+            "label": "Febrile seizure",
+            "short_label": "Febrile seizure",
+            "severity": "moderate",
+            "probability": 0.00034,
+            "description": "Rare seizure associated with fever"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-05,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/rubella/hcp/clinical-overview/index.html"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/rubella/factsheet"
+          },
+          {
+            "institution": "EU",
+            "url": "https://vaccination-info.europa.eu/en/rubella"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/vaccines/vpd/mmr/public/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/conditions/vaccinations/mmr-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/rubella"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Childhood vaccines",
+      "slug": "varicella",
+      "name": "Varicella",
+      "environmental_hostility": 0.55,
+      "outcomes": [
+        {
+          "label": "Itchy rash illness",
+          "short_label": "Rash illness",
+          "severity": "moderate",
+          "probability": 0.99695,
+          "description": "An itchy blister-like rash with mild fever and tiredness that usually lasts 4 to 7 days"
+        },
+        {
+          "label": "Hospitalization",
+          "short_label": "Hospitalization",
+          "severity": "hospitalization",
+          "probability": 0.00302,
+          "description": "Severe varicella requiring hospital care, often from pneumonia or serious bacterial skin infection"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 3e-05,
+          "description": "Life-threatening varicella complication"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "Varicella",
+        "effectiveness": 0.9,
+        "outcomes": [
+          {
+            "label": "Soreness, swelling, or redness",
+            "short_label": "Soreness",
+            "severity": "mild",
+            "probability": 0.19,
+            "description": "Common short-lived reaction at the injection site"
+          },
+          {
+            "label": "Fever or mild rash",
+            "short_label": "Fever or rash",
+            "severity": "moderate",
+            "probability": 0.15,
+            "description": "A short-lived fever or small chickenpox-like rash can happen after vaccination"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/chickenpox/hcp/clinical-overview/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/conditions/chickenpox/"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/varicella/facts"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/chickenpox/vaccines/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/vaccinations/chickenpox-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/varicella"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Childhood vaccines",
+      "slug": "polio",
+      "name": "Polio",
+      "environmental_hostility": 0.25,
+      "outcomes": [
+        {
+          "label": "No visible symptoms",
+          "short_label": "No symptoms",
+          "severity": "mild",
+          "probability": 0.72,
+          "description": "Most poliovirus infections cause no visible symptoms, but can still spread"
+        },
+        {
+          "label": "Short flu-like illness",
+          "short_label": "Flu-like illness",
+          "severity": "moderate",
+          "probability": 0.2448,
+          "description": "Fever, sore throat, tiredness, nausea, headache, or stomach pain for a few days"
+        },
+        {
+          "label": "Meningitis",
+          "short_label": "Meningitis",
+          "severity": "hospitalization",
+          "probability": 0.03,
+          "description": "Infection of the lining around the brain and spinal cord"
+        },
+        {
+          "label": "Paralysis",
+          "short_label": "Paralysis",
+          "severity": "severe",
+          "probability": 0.005,
+          "description": "Can cause lifelong paralysis, breathing failure, and permanent disability"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.0002,
+          "description": "Paralytic polio can lead to breathing failure and death"
+        }
+      ],
+      "long_term_effects": [
+        {
+          "label": "Post-polio syndrome",
+          "short_label": "Post-polio syndrome",
+          "severity": "severe",
+          "probability": 0.25,
+          "conditional_basis": "survivors",
+          "description": "New muscle weakness, fatigue, and joint pain can appear 15 to 40 years after the original infection in some polio survivors"
+        }
+      ],
+      "vaccine": {
+        "name": "IPV (inactivated polio vaccine)",
+        "effectiveness": 0.99,
+        "outcomes": [
+          {
+            "label": "Tenderness, swelling, or redness",
+            "short_label": "Local reaction",
+            "severity": "mild",
+            "probability": 0.29,
+            "description": "Usually mild local soreness, swelling, or redness after vaccination"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/polio/about/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/conditions/polio/"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/poliomyelitis/facts"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/polio/vaccines/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/vaccinations/6-in-1-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/poliomyelitis-(polio)"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Childhood vaccines",
+      "slug": "hib",
+      "name": "Hib",
+      "environmental_hostility": 0.18,
+      "outcomes": [
+        {
+          "label": "Meningitis",
+          "short_label": "Meningitis",
+          "severity": "severe",
+          "probability": 0.55,
+          "description": "Serious invasive infection of the brain and spinal cord lining"
+        },
+        {
+          "label": "Other invasive infection",
+          "short_label": "Invasive infection",
+          "severity": "hospitalization",
+          "probability": 0.42,
+          "description": "Serious bloodstream, throat, lung, bone, or joint infection requiring hospital treatment"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.03,
+          "description": "Life-threatening invasive Hib disease"
+        }
+      ],
+      "long_term_effects": [
+        {
+          "label": "Hearing loss or brain damage",
+          "short_label": "Neurologic damage",
+          "severity": "severe",
+          "probability": 0.2,
+          "description": "Long-term neurologic harm that can follow Hib meningitis"
+        }
+      ],
+      "vaccine": {
+        "name": "Hib",
+        "effectiveness": 0.97,
+        "outcomes": [
+          {
+            "label": "Pain, tenderness, or fever",
+            "short_label": "Local reaction",
+            "severity": "mild",
+            "probability": 0.25,
+            "description": "Usually mild pain, tenderness, or brief fever after vaccination"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/hi-disease/about/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/conditions/hib/"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/invasive-haemophilus-influenzae-disease/facts"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/hi-disease/vaccines/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/vaccinations/6-in-1-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers/haemophilus-influenzae-type-b"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Respiratory viruses",
+      "slug": "influenza",
+      "name": "Influenza",
+      "environmental_hostility": 0.45,
+      "outcomes": [
+        {
+          "label": "Flu illness",
+          "short_label": "Flu illness",
+          "severity": "moderate",
+          "probability": 0.985,
+          "description": "Usually a self-limited illness with fever, cough, sore throat, body aches, fatigue, and several days of significant symptoms"
+        },
+        {
+          "label": "Hospitalization",
+          "short_label": "Hospitalization",
+          "severity": "hospitalization",
+          "probability": 0.014,
+          "description": "More serious influenza can lead to dehydration, pneumonia, or worsening of chronic conditions and require hospital care"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.001,
+          "description": "Influenza can become life-threatening, especially in high-risk groups"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "Inactivated influenza vaccine (IIV)",
+        "effectiveness": 0.5,
+        "outcomes": [
+          {
+            "label": "Sore arm or mild aches",
+            "short_label": "Sore arm",
+            "severity": "mild",
+            "probability": 0.6,
+            "description": "Common short-lived soreness or mild aches after vaccination"
+          },
+          {
+            "label": "Low-grade fever or fatigue",
+            "short_label": "Fever or fatigue",
+            "severity": "moderate",
+            "probability": 0.1,
+            "description": "A brief low-grade fever, tiredness, or body aches can happen after vaccination"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/flu/site.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/seasonal-influenza/facts/factsheet"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/flu/vaccines/keyfacts.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/vaccinations/flu-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/publications/i/item/who-wer9719"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Other routine vaccines",
+      "slug": "rotavirus",
+      "name": "Rotavirus",
+      "environmental_hostility": 0.5,
+      "outcomes": [
+        {
+          "label": "Vomiting and diarrhea illness",
+          "short_label": "Vomiting and diarrhea",
+          "severity": "moderate",
+          "probability": 0.965,
+          "description": "Watery diarrhea, vomiting, fever, and stomach pain can last 3 to 8 days and may be the first severe infection"
+        },
+        {
+          "label": "Hospitalization",
+          "short_label": "Hospitalization",
+          "severity": "hospitalization",
+          "probability": 0.0345,
+          "description": "Rotavirus can cause severe dehydration, electrolyte imbalance, or acidosis and require hospital treatment"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.0005,
+          "description": "Rotavirus can become life-threatening when dehydration is severe"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "Oral rotavirus vaccine",
+        "effectiveness": 0.8,
+        "outcomes": [
+          {
+            "label": "Brief stomach upset or irritability",
+            "short_label": "Brief stomach upset",
+            "severity": "mild",
+            "probability": 0.1,
+            "description": "Most babies have no problems, but some may be briefly irritable or have mild stomach symptoms"
+          },
+          {
+            "label": "Intussusception",
+            "short_label": "Intussusception",
+            "severity": "hospitalization",
+            "probability": 2e-05,
+            "description": "A very rare bowel blockage can happen shortly after vaccination and needs urgent care"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/rotavirus/hcp/clinical-overview/index.html"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/rotavirus-infection/facts"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/rotavirus/vaccines/index.html"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/vaccinations/rotavirus-vaccine/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/rotavirus"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Other routine vaccines",
+      "slug": "hepatitis-b",
+      "name": "Hepatitis B",
+      "environmental_hostility": 0.15,
+      "outcomes": [
+        {
+          "label": "No noticeable symptoms",
+          "short_label": "No symptoms",
+          "severity": "mild",
+          "probability": 0.8,
+          "description": "Many hepatitis B infections, especially in infancy and childhood, cause no obvious symptoms at first"
+        },
+        {
+          "label": "Acute hepatitis illness",
+          "short_label": "Acute illness",
+          "severity": "moderate",
+          "probability": 0.19,
+          "description": "When symptoms appear, hepatitis B can cause jaundice, fatigue, nausea, fever, and abdominal pain during the initial infection"
+        },
+        {
+          "label": "Fulminant liver failure",
+          "short_label": "Liver failure",
+          "severity": "fatal",
+          "probability": 0.01,
+          "description": "A small minority of acute infections can cause sudden life-threatening liver failure"
+        }
+      ],
+      "long_term_effects": [
+        {
+          "label": "Chronic infection with later liver damage risk",
+          "short_label": "Chronic infection",
+          "severity": "severe",
+          "probability": 0.28,
+          "description": "Infection acquired early in life can become chronic and later lead to cirrhosis or liver cancer"
+        },
+        {
+          "label": "Later fatal liver disease or cancer",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.02,
+          "conditional_basis": "survivors",
+          "description": "Some chronic infections later lead to fatal liver failure or liver cancer"
+        }
+      ],
+      "vaccine": {
+        "name": "Hepatitis B vaccine",
+        "effectiveness": 0.98,
+        "outcomes": [
+          {
+            "label": "Local pain, myalgia, or brief fever",
+            "short_label": "Pain or fever",
+            "severity": "mild",
+            "probability": 0.1,
+            "description": "Usually mild pain, muscle aches, or brief fever within a day after vaccination"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1.1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/hepatitis-b/about/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/hepatitis-b"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/hepatitis-b/facts"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/hepatitis-b/vaccination/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/hepatitis#hepb"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Global health",
+      "slug": "hepatitis-a",
+      "name": "Hepatitis A",
+      "environmental_hostility": 0.25,
+      "outcomes": [
+        {
+          "label": "No noticeable symptoms",
+          "short_label": "No symptoms",
+          "severity": "mild",
+          "probability": 0.55,
+          "description": "Many hepatitis A infections, especially in younger children, cause no obvious symptoms"
+        },
+        {
+          "label": "Acute hepatitis illness",
+          "short_label": "Acute illness",
+          "severity": "moderate",
+          "probability": 0.43,
+          "description": "Hepatitis A can cause sudden fever, tiredness, nausea, stomach pain, and jaundice for weeks or sometimes months"
+        },
+        {
+          "label": "Hospitalization",
+          "short_label": "Hospitalization",
+          "severity": "hospitalization",
+          "probability": 0.019,
+          "description": "Severe weakness, dehydration, or liver inflammation can require hospital care"
+        },
+        {
+          "label": "Fulminant liver failure",
+          "short_label": "Liver failure",
+          "severity": "fatal",
+          "probability": 0.001,
+          "description": "In rare cases hepatitis A causes sudden liver failure and can be fatal, especially in older people or those with liver disease"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "Inactivated hepatitis A vaccine",
+        "effectiveness": 0.95,
+        "outcomes": [
+          {
+            "label": "Soreness or mild fever",
+            "short_label": "Soreness or fever",
+            "severity": "mild",
+            "probability": 0.17,
+            "description": "Usually mild soreness or a brief fever after vaccination"
+          },
+          {
+            "label": "Headache or tiredness",
+            "short_label": "Headache or tiredness",
+            "severity": "moderate",
+            "probability": 0.01,
+            "description": "Headache or tiredness can happen briefly after vaccination"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/hepatitis-a/about/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/hepatitis-a"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/hepatitis-a"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/vaccine-safety/vaccines/hepatitis-a.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/hepatitis#hepa"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Global health",
+      "slug": "cholera",
+      "name": "Cholera",
+      "environmental_hostility": 0.28,
+      "outcomes": [
+        {
+          "label": "Mild or no noticeable symptoms",
+          "short_label": "Mild or no symptoms",
+          "severity": "mild",
+          "probability": 0.96,
+          "description": "Up to 80% of cholera infections cause no symptoms, and most symptomatic cases remain mild"
+        },
+        {
+          "label": "Severe dehydrating diarrhea",
+          "short_label": "Severe diarrhea",
+          "severity": "moderate",
+          "probability": 0.03,
+          "description": "Severe watery diarrhea and vomiting can rapidly lead to life-threatening dehydration"
+        },
+        {
+          "label": "Hospitalization",
+          "short_label": "Hospitalization",
+          "severity": "hospitalization",
+          "probability": 0.008,
+          "description": "Severe dehydration may require urgent hospital treatment with fluids"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.002,
+          "description": "Untreated severe cholera can be fatal within hours"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "Killed whole-cell oral cholera vaccine",
+        "effectiveness": 0.65,
+        "outcomes": [
+          {
+            "label": "Mild abdominal discomfort or diarrhea",
+            "short_label": "Stomach upset",
+            "severity": "mild",
+            "probability": 0.08,
+            "description": "Usually mild stomach symptoms that pass quickly"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/cholera/about/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/cholera"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/publications/i/item/who-wer9234-477-500"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Global health",
+      "slug": "typhoid",
+      "name": "Typhoid",
+      "environmental_hostility": 0.2,
+      "outcomes": [
+        {
+          "label": "Typhoid fever illness",
+          "short_label": "Typhoid fever",
+          "severity": "moderate",
+          "probability": 0.84,
+          "description": "Typhoid can cause prolonged fever, weakness, stomach pain, headache, and poor appetite"
+        },
+        {
+          "label": "Hospitalization",
+          "short_label": "Hospitalization",
+          "severity": "hospitalization",
+          "probability": 0.13,
+          "description": "Severe typhoid may require hospital care for dehydration, sepsis, or intestinal complications"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.03,
+          "description": "Untreated typhoid can lead to intestinal perforation, sepsis, and death"
+        }
+      ],
+      "long_term_effects": [
+        {
+          "label": "Chronic carrier state",
+          "short_label": "Chronic carriage",
+          "severity": "severe",
+          "probability": 0.03,
+          "description": "A small number of people continue carrying and spreading the bacteria after recovery"
+        }
+      ],
+      "vaccine": {
+        "name": "Typhoid conjugate vaccine (TCV)",
+        "effectiveness": 0.85,
+        "outcomes": [
+          {
+            "label": "Fever, pain, or swelling",
+            "short_label": "Pain or fever",
+            "severity": "mild",
+            "probability": 0.1,
+            "description": "Usually mild fever, pain, or swelling after vaccination"
+          },
+          {
+            "label": "Severe allergic reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare acute allergic response"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/typhoid-fever/about/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/typhoid"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Other routine vaccines",
+      "slug": "pneumococcal-disease",
+      "name": "Pneumococcal",
+      "environmental_hostility": 0.25,
+      "outcomes": [
+        {
+          "label": "Pneumonia or ear infection",
+          "short_label": "Pneumonia or ear infection",
+          "severity": "moderate",
+          "probability": 0.89,
+          "description": "Pneumococcal disease can cause pneumonia, ear infection, or sinus infection and make young children seriously ill"
+        },
+        {
+          "label": "Invasive disease",
+          "short_label": "Invasive disease",
+          "severity": "hospitalization",
+          "probability": 0.1,
+          "description": "Invasive pneumococcal disease can spread to the blood or brain and usually requires urgent hospital care"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.01,
+          "description": "Severe pneumococcal infection can be deadly"
+        }
+      ],
+      "long_term_effects": [
+        {
+          "label": "Hearing loss or neurologic damage",
+          "short_label": "Neurologic damage",
+          "severity": "severe",
+          "probability": 0.25,
+          "conditional_basis": "severe_cases",
+          "description": "Meningitis from pneumococcal disease can leave permanent hearing loss or neurologic harm"
+        }
+      ],
+      "vaccine": {
+        "name": "PCV",
+        "effectiveness": 0.8,
+        "outcomes": [
+          {
+            "label": "Soreness, low fever, or irritability",
+            "short_label": "Soreness or low fever",
+            "severity": "mild",
+            "probability": 0.1,
+            "description": "Usually mild short-lived soreness, low fever, irritability, or reduced appetite after vaccination"
+          },
+          {
+            "label": "High fever or stomach upset",
+            "short_label": "High fever",
+            "severity": "moderate",
+            "probability": 0.01,
+            "description": "Less common higher fever, vomiting, or diarrhea after vaccination"
+          },
+          {
+            "label": "Allergic-type reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 0.0001,
+            "description": "Very rare allergic-type reaction that may need urgent care"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/pneumococcal/about/index.html"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/pneumococcal-disease/facts"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/pneumococcal/vaccines/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/publications/i/item/WER8714_129-144"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Childhood vaccines",
+      "slug": "diphtheria",
+      "name": "Diphtheria",
+      "environmental_hostility": 0.3,
+      "outcomes": [
+        {
+          "label": "No noticeable symptoms",
+          "short_label": "No symptoms",
+          "severity": "mild",
+          "probability": 0.08,
+          "description": "Some diphtheria infections can cause few or no noticeable symptoms but still spread"
+        },
+        {
+          "label": "Severe throat infection",
+          "short_label": "Throat infection",
+          "severity": "moderate",
+          "probability": 0.84,
+          "description": "A toxin-producing throat infection with sore throat, weakness, swollen glands, and a membrane that can block breathing"
+        },
+        {
+          "label": "Heart or nerve complication",
+          "short_label": "Toxin complication",
+          "severity": "hospitalization",
+          "probability": 0.05,
+          "description": "Severe toxin effects can damage the heart or nerves and usually require urgent hospital care"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.03,
+          "description": "Diphtheria can be deadly even with treatment"
+        }
+      ],
+      "long_term_effects": [],
+      "vaccine": {
+        "name": "DTaP",
+        "effectiveness": 0.97,
+        "outcomes": [
+          {
+            "label": "Soreness, swelling, or fever",
+            "short_label": "Soreness or fever",
+            "severity": "mild",
+            "probability": 0.25,
+            "description": "Common short-lived local reaction or fever"
+          },
+          {
+            "label": "Extended crying or high fever",
+            "short_label": "High fever",
+            "severity": "moderate",
+            "probability": 0.005,
+            "description": "Less common but still temporary reaction after vaccination"
+          },
+          {
+            "label": "Seizure related to fever",
+            "short_label": "Fever seizure",
+            "severity": "moderate",
+            "probability": 0.001,
+            "description": "Rare seizure associated with a high fever"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/diphtheria/"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/diphtheria"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/diphtheria/vaccines/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers/diphtheria"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/vaccinations/6-in-1-vaccine/"
+          }
+        ]
+      }
+    },
+    {
+      "category": "Rare but severe",
+      "slug": "meningococcal-disease",
+      "name": "Meningococcal",
+      "environmental_hostility": 0.12,
+      "outcomes": [
+        {
+          "label": "Meningitis or sepsis",
+          "short_label": "Meningitis or sepsis",
+          "severity": "hospitalization",
+          "probability": 0.88,
+          "description": "Rapid bacterial meningitis or bloodstream infection that requires urgent hospital care"
+        },
+        {
+          "label": "Fatal outcome",
+          "short_label": "Fatal outcome",
+          "severity": "fatal",
+          "probability": 0.12,
+          "description": "Meningococcal disease can become fatal within hours even with treatment"
+        }
+      ],
+      "long_term_effects": [
+        {
+          "label": "Life-changing disability",
+          "short_label": "Long-term disability",
+          "severity": "severe",
+          "probability": 0.2,
+          "conditional_basis": "survivors",
+          "description": "About 1 in 5 survivors can have major disabilities such as hearing loss, brain damage, seizures, or limb loss after severe infection"
+        }
+      ],
+      "vaccine": {
+        "name": "MenACWY",
+        "effectiveness": 0.85,
+        "outcomes": [
+          {
+            "label": "Sore arm, redness, or swelling",
+            "short_label": "Sore arm",
+            "severity": "mild",
+            "probability": 0.2,
+            "description": "Usually mild local soreness, redness, or swelling that lasts a day or two"
+          },
+          {
+            "label": "Fever or irritability",
+            "short_label": "Fever",
+            "severity": "moderate",
+            "probability": 0.03,
+            "description": "Less commonly, children may be briefly feverish or irritable after vaccination"
+          },
+          {
+            "label": "Allergic-type reaction",
+            "short_label": "Allergic reaction",
+            "severity": "severe",
+            "probability": 1e-06,
+            "description": "Extremely rare allergic-type reaction that may need urgent care"
+          }
+        ]
+      },
+      "sources": {
+        "disease": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/meningococcal/index.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/meningococcal-meningitis"
+          },
+          {
+            "institution": "ECDC",
+            "url": "https://www.ecdc.europa.eu/en/meningococcal-disease"
+          }
+        ],
+        "vaccine": [
+          {
+            "institution": "CDC",
+            "url": "https://www.cdc.gov/pinkbook/hcp/table-of-contents/chapter-14-meningococcal-disease.html"
+          },
+          {
+            "institution": "WHO",
+            "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/meningitis"
+          },
+          {
+            "institution": "NHS",
+            "url": "https://www.nhs.uk/menacwy"
+          }
+        ]
+      }
+    }
+  ]
+}

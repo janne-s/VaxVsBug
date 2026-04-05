@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5efe2" />
+  <meta
+    name="description"
+    content="VaxVsBug is an interactive visual tool that compares vaccine effects and disease effects, helping people explore risk, immunity, and outcomes."
+  />
+  <meta name="author" content="Janne Sarkela" />
+  <link rel="canonical" href="https://vaxvsbug.com/" />
+  <link rel="alternate" hreflang="en" href="https://vaxvsbug.com/?lang=en" />
+  <link rel="alternate" hreflang="fi" href="https://vaxvsbug.com/?lang=fi" />
+  <link rel="alternate" hreflang="x-default" href="https://vaxvsbug.com/" />
+  <meta property="og:title" content="VaxVsBug | Compare Vaccination and Infection Risks" />
+  <meta property="og:description" content="Compare vaccine effects and disease effects with an interactive probability visualizer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaxvsbug.com/" />
+  <meta property="og:site_name" content="VaxVsBug" />
+  <meta property="og:see_also" content="https://www.sanaracreations.fi" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="fi_FI" />
+  <meta property="og:image" content="https://vaxvsbug.com/img/og-image.jpg" />
+  <meta property="og:image:secure_url" content="https://vaxvsbug.com/img/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Placeholder social share image for VaxVsBug" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VaxVsBug | Compare Vaccination and Infection Risks" />
+  <meta name="twitter:description" content="Compare vaccine effects and disease effects with an interactive probability visualizer." />
+  <meta name="twitter:image" content="https://vaxvsbug.com/img/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Placeholder social share image for VaxVsBug" />
+  <meta name="twitter:site" content="@JanneSarkela" />
+  <meta name="twitter:creator" content="@JanneSarkela" />
+  <title>VaxVsBug | Compare Vaccination and Infection Risks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="app-layout" aria-label="VaxVsBug app">
+      <header class="topbar">
+        <h1>VaxVsBug</h1>
+        <div class="topbar-controls">
+          <label class="field">
+            <select id="diseaseSelect" aria-label="Select disease"></select>
+          </label>
+          <label class="lang-field">
+            <select id="languageSelect" aria-label="Language">
+              <option value="en">EN</option>
+              <option value="fi">FI</option>
+            </select>
+          </label>
+          <button id="infoButton" class="info-button" type="button" aria-expanded="false" aria-controls="infoPanel">i</button>
+        </div>
+      </header>
+
+      <section class="community-card" aria-label="Community vaccination">
+        <div class="community-copy">
+          <div class="community-meta">
+            <strong id="communityTitle">Vaccine Rate in Your Community</strong>
+            <output id="sliderValue" for="vaccinationSlider">60%</output>
+          </div>
+        </div>
+        <input
+          type="range"
+          id="vaccinationSlider"
+          min="0"
+          max="100"
+          value="60"
+          aria-label="Vaccination rate in your community"
+        />
+        <div class="slider-scale" aria-hidden="true">
+          <span>0%</span>
+          <span>100%</span>
+        </div>
+      </section>
+
+      <section class="comparison" aria-label="Vaccine and disease comparison">
+        <article class="panel">
+          <div class="panel-head">
+            <h2 id="vaccineHeading">Vaccination effects</h2>
+          </div>
+          <div id="vaccineGrid" class="grid" aria-label="Vaccine effects probability grid"></div>
+          <div class="panel-legend" id="vaccineLegend" aria-label="Vaccine effects legend"></div>
+          <details class="rare-effects" id="vaccineRare"></details>
+          <p class="metric" id="vaccineSummary"></p>
+          <div class="result" id="vaccineResult" aria-live="polite"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2 id="diseaseHeading">Infection effects</h2>
+          </div>
+          <div id="diseaseGrid" class="grid" aria-label="Infection effects probability grid"></div>
+          <div class="panel-legend" id="diseaseLegend" aria-label="Infection effects legend"></div>
+          <details class="rare-effects" id="diseaseRare"></details>
+          <p class="metric" id="diseaseSummary"></p>
+          <div class="result" id="diseaseResult" aria-live="polite"></div>
+        </article>
+      </section>
+
+      <section class="action-row" aria-label="Simulation controls">
+        <img class="dice" src="img/dice.png" alt="" width="132" height="132" decoding="async" />
+        <button id="testButton" type="button">Try your luck</button>
+      </section>
+
+      <div class="app-footnote">
+        <button id="sourcesButton" class="footnote-link" type="button" aria-expanded="false" aria-controls="sourcesPanel">Sources</button>
+        <button id="aboutButton" class="footnote-link" type="button" aria-expanded="false" aria-controls="aboutPanel">About</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="info-overlay" id="infoOverlay" hidden></div>
+  <aside class="info-panel" id="infoPanel" aria-hidden="true" hidden>
+    <div class="info-panel-inner">
+      <div class="info-panel-head">
+        <h2 id="infoTitle">About this app</h2>
+        <button id="infoClose" class="info-close" type="button" aria-label="Close information panel">×</button>
+      </div>
+      <div id="infoContent" class="info-content"></div>
+    </div>
+  </aside>
+
+  <div class="info-overlay" id="sourcesOverlay" hidden></div>
+  <aside class="info-panel sources-panel" id="sourcesPanel" aria-hidden="true" hidden>
+    <div class="info-panel-inner">
+      <div class="info-panel-head">
+        <h2 id="sourcesTitle">Sources</h2>
+        <button id="sourcesClose" class="info-close" type="button" aria-label="Close sources panel">×</button>
+      </div>
+      <div id="sourcesContent" class="sources-content"></div>
+    </div>
+  </aside>
+
+  <div class="info-overlay" id="aboutOverlay" hidden></div>
+  <aside class="info-panel about-panel" id="aboutPanel" aria-hidden="true" hidden>
+    <div class="info-panel-inner">
+      <div class="info-panel-head">
+        <h2>About</h2>
+        <button id="aboutClose" class="info-close" type="button" aria-label="Close about panel">×</button>
+      </div>
+      <div class="about-content">
+        <p>
+          Created by <strong>Janne Särkelä</strong> /
+          <a href="https://www.sanaracreations.fi" target="_blank" rel="noopener noreferrer">sanaracreations.fi</a>
+        </p>
+        <p>
+          VaxVsBug is a hobby project. Source code, documents on methodology and data integrity, and my other open source work are available on
+          <a href="https://github.com/janne-s/vaxvsbug" target="_blank" rel="noopener noreferrer">GitHub</a>.
+          Comments, contributions, and new translations are welcome.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
