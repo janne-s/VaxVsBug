@@ -117,3 +117,19 @@ Helpful contribution areas:
 - disease-by-disease data audit
 - source verification
 - UI polish and accessibility improvements
+
+## Support VaxVsBug
+
+If you find VaxVsBug useful, you can support its continued development:
+
+- **GitHub Sponsors** – support the open-source work, updates, and future improvements directly.  
+  [Become a GitHub Sponsor](https://github.com/sponsors/janne-s)
+
+- **Ko-fi** – make a one-off tip or small donation to support the project.  
+  [Support on Ko-fi](https://ko-fi.com/jannesarkela)
+
+  [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z21VZ78L)
+
+Thank you for helping support independent open-source educational work.
+
+See [**Sanara Creations**](https://www.sanaracreations.fi/) for my multidisciplinary work, both solo and in collaboration with others.
