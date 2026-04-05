@@ -53,6 +53,7 @@ App/
 - [`js/`](js) - app modules
 - [`locales/`](locales) - language files
 - [`docs/Environmental-Hostility.md`](docs/Environmental-Hostility.md) - calibration notes for `environmental_hostility`
+- [`docs/Data-Integrity-Notes.md`](docs/Data-Integrity-Notes.md) - notes on how grounded the disease and vaccine probabilities are
 
 ## Running Locally
 
@@ -92,10 +93,12 @@ In particular:
 - `environmental_hostility` is an app-level spread-pressure value
 - it is not a direct official metric
 - disease outcomes are simplified into a UI-friendly educational model
+- the data, wording, and source links have been manually reviewed
 
-The methodology behind `environmental_hostility` is documented in:
+Supporting notes are documented in:
 
 - [`docs/Environmental-Hostility.md`](docs/Environmental-Hostility.md)
+- [`docs/Data-Integrity-Notes.md`](docs/Data-Integrity-Notes.md)
 
 ## Localization
 
@@ -114,7 +117,3 @@ Helpful contribution areas:
 - disease-by-disease data audit
 - source verification
 - UI polish and accessibility improvements
-
-## License
-
-Add your preferred license here.
