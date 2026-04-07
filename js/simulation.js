@@ -3,6 +3,7 @@ import {
   FOCUS_MAX_RADIUS,
   FOCUS_MIN_DELAY_MS,
   FOCUS_STEPS,
+  GRID_SIZE,
   GRID_EFFECT_CLASSES,
   PANEL_KEYS,
   RESULT_FALLBACK_KEYS,
@@ -59,6 +60,13 @@ export function createSimulation(app, model, renderer) {
     if (!view.grid.contains(cell)) return;
 
     const index = Number(cell.dataset.index);
+    view.grid.focus({ preventScroll: true });
+    renderer.setGridActiveCell(view, index);
+    openGridCellResult(panel, index);
+  }
+
+  function openGridCellResult(panel, index) {
+    const view = views[panel];
     const entry = app.state.gridEntries[panel][index];
     const fallback = t(RESULT_FALLBACK_KEYS[panel]);
 
@@ -71,10 +79,50 @@ export function createSimulation(app, model, renderer) {
     });
   }
 
+  function handleGridKeydown(event, panel) {
+    const view = views[panel];
+    const currentIndex = typeof view.activeIndex === "number" ? view.activeIndex : 0;
+    let nextIndex = currentIndex;
+
+    switch (event.key) {
+      case "ArrowRight":
+        nextIndex = Math.min(CELL_COUNT - 1, currentIndex + 1);
+        break;
+      case "ArrowLeft":
+        nextIndex = Math.max(0, currentIndex - 1);
+        break;
+      case "ArrowDown":
+        nextIndex = Math.min(CELL_COUNT - 1, currentIndex + GRID_SIZE);
+        break;
+      case "ArrowUp":
+        nextIndex = Math.max(0, currentIndex - GRID_SIZE);
+        break;
+      case "Home":
+        nextIndex = event.ctrlKey ? 0 : currentIndex - (currentIndex % GRID_SIZE);
+        break;
+      case "End":
+        nextIndex = event.ctrlKey ? CELL_COUNT - 1 : Math.min(CELL_COUNT - 1, currentIndex - (currentIndex % GRID_SIZE) + (GRID_SIZE - 1));
+        break;
+      case "Enter":
+      case " ":
+        event.preventDefault();
+        openGridCellResult(panel, currentIndex);
+        return;
+      default:
+        return;
+    }
+
+    event.preventDefault();
+    renderer.setGridActiveCell(view, nextIndex);
+  }
+
   function setRollingState(isRolling) {
     elements.testButton.disabled = isRolling;
     if (isRolling) restartDiceAnimation();
-    if (!isRolling) elements.dice.classList.remove("is-rolling");
+    if (!isRolling) {
+      elements.dice.classList.remove("is-rolling");
+      elements.testButton.focus({ preventScroll: true });
+    }
   }
 
   function restartDiceAnimation() {
@@ -268,6 +316,7 @@ export function createSimulation(app, model, renderer) {
   return {
     clearCellEffects,
     handleGridClick,
+    handleGridKeydown,
     runSimulation
   };
 }

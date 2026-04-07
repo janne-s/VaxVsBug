@@ -52,7 +52,7 @@
               <option value="fi">FI</option>
             </select>
           </label>
-          <button id="infoButton" class="info-button" type="button" aria-expanded="false" aria-controls="infoPanel">i</button>
+          <button id="infoButton" class="info-button" type="button" tabindex="0" aria-expanded="false" aria-controls="infoPanel">i</button>
         </div>
       </header>
 
@@ -69,6 +69,7 @@
           min="0"
           max="100"
           value="60"
+          tabindex="0"
           aria-label="Vaccination rate in your community"
         />
         <div class="slider-scale" aria-hidden="true">
@@ -103,44 +104,44 @@
 
       <section class="action-row" aria-label="Simulation controls">
         <img class="dice" src="img/dice.png" alt="" width="132" height="132" decoding="async" />
-        <button id="testButton" type="button">Try your luck</button>
+        <button id="testButton" type="button" tabindex="0">Try your luck</button>
       </section>
 
       <div class="app-footnote">
-        <button id="sourcesButton" class="footnote-link" type="button" aria-expanded="false" aria-controls="sourcesPanel">Sources</button>
-        <button id="aboutButton" class="footnote-link" type="button" aria-expanded="false" aria-controls="aboutPanel">About</button>
+        <button id="sourcesButton" class="footnote-link" type="button" tabindex="0" aria-expanded="false" aria-controls="sourcesPanel">Sources</button>
+        <button id="aboutButton" class="footnote-link" type="button" tabindex="0" aria-expanded="false" aria-controls="aboutPanel">About</button>
       </div>
     </section>
   </main>
 
   <div class="info-overlay" id="infoOverlay" hidden></div>
-  <aside class="info-panel" id="infoPanel" aria-hidden="true" hidden>
+  <aside class="info-panel" id="infoPanel" role="dialog" aria-modal="true" aria-labelledby="infoTitle" aria-hidden="true" hidden>
     <div class="info-panel-inner">
       <div class="info-panel-head">
         <h2 id="infoTitle">About this app</h2>
-        <button id="infoClose" class="info-close" type="button" aria-label="Close information panel">×</button>
+        <button id="infoClose" class="info-close" type="button" tabindex="0" aria-label="Close information panel">×</button>
       </div>
       <div id="infoContent" class="info-content"></div>
     </div>
   </aside>
 
   <div class="info-overlay" id="sourcesOverlay" hidden></div>
-  <aside class="info-panel sources-panel" id="sourcesPanel" aria-hidden="true" hidden>
+  <aside class="info-panel sources-panel" id="sourcesPanel" role="dialog" aria-modal="true" aria-labelledby="sourcesTitle" aria-hidden="true" hidden>
     <div class="info-panel-inner">
       <div class="info-panel-head">
         <h2 id="sourcesTitle">Sources</h2>
-        <button id="sourcesClose" class="info-close" type="button" aria-label="Close sources panel">×</button>
+        <button id="sourcesClose" class="info-close" type="button" tabindex="0" aria-label="Close sources panel">×</button>
       </div>
       <div id="sourcesContent" class="sources-content"></div>
     </div>
   </aside>
 
   <div class="info-overlay" id="aboutOverlay" hidden></div>
-  <aside class="info-panel about-panel" id="aboutPanel" aria-hidden="true" hidden>
+  <aside class="info-panel about-panel" id="aboutPanel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle" aria-hidden="true" hidden>
     <div class="info-panel-inner">
       <div class="info-panel-head">
-        <h2>About</h2>
-        <button id="aboutClose" class="info-close" type="button" aria-label="Close about panel">×</button>
+        <h2 id="aboutTitle">About</h2>
+        <button id="aboutClose" class="info-close" type="button" tabindex="0" aria-label="Close about panel">×</button>
       </div>
       <div class="about-content">
         <p>

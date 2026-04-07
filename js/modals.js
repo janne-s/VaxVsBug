@@ -2,6 +2,7 @@ import { PANEL_TRANSITION_MS } from "./config.js";
 
 export function createModalController(app, renderer) {
   const { elements } = app;
+  let activeModal = null;
 
   const modals = {
     info: {
@@ -31,6 +32,11 @@ export function createModalController(app, renderer) {
       modal.close.addEventListener("click", () => setModalVisibility(modal, false));
       modal.overlay.addEventListener("click", () => setModalVisibility(modal, false));
     });
+
+    document.addEventListener("keydown", event => {
+      if (event.key !== "Tab" || !activeModal || activeModal.panel.hidden) return;
+      trapModalFocus(event, activeModal);
+    });
   }
 
   function closeAllModals(exceptKey = "") {
@@ -51,10 +57,12 @@ export function createModalController(app, renderer) {
       requestAnimationFrame(() => {
         modal.overlay.classList.add("is-visible");
         modal.panel.classList.add("is-visible");
+        modal.close.focus({ preventScroll: true });
       });
       modal.panel.setAttribute("aria-hidden", "false");
       modal.button.setAttribute("aria-expanded", "true");
       document.body.classList.add("info-open");
+      activeModal = modal;
       return;
     }
 
@@ -67,7 +75,39 @@ export function createModalController(app, renderer) {
       modal.overlay.hidden = true;
       modal.panel.hidden = true;
       updateBodyModalState();
+      if (activeModal === modal) {
+        activeModal = null;
+        modal.button.focus({ preventScroll: true });
+      }
     }, PANEL_TRANSITION_MS);
+  }
+
+  function trapModalFocus(event, modal) {
+    const focusable = getFocusableElements(modal.panel);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const current = document.activeElement;
+
+    if (event.shiftKey && current === first) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+
+    if (!event.shiftKey && current === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  function getFocusableElements(container) {
+    return Array.from(
+      container.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter(element => !element.hidden && element.getAttribute("aria-hidden") !== "true");
   }
 
   function getModalKey(targetModal) {
@@ -82,6 +122,7 @@ export function createModalController(app, renderer) {
   return {
     bindModalEvents,
     closeAllModals,
+    hasOpenModal: () => Boolean(activeModal && !activeModal.panel.hidden),
     modals
   };
 }

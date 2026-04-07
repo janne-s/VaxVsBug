@@ -29,6 +29,7 @@ const elements = {
   aboutClose: document.getElementById("aboutClose"),
   aboutOverlay: document.getElementById("aboutOverlay"),
   aboutPanel: document.getElementById("aboutPanel"),
+  aboutTitle: document.getElementById("aboutTitle"),
   sourcesButton: document.getElementById("sourcesButton"),
   sourcesClose: document.getElementById("sourcesClose"),
   sourcesOverlay: document.getElementById("sourcesOverlay"),
@@ -126,11 +127,20 @@ function bindEvents() {
   elements.testButton.addEventListener("click", simulation.runSimulation);
   PANEL_KEYS.forEach(panel => {
     views[panel].grid.addEventListener("click", event => simulation.handleGridClick(event, panel));
+    views[panel].grid.addEventListener("keydown", event => simulation.handleGridKeydown(event, panel));
   });
   modalController.bindModalEvents();
   document.addEventListener("keydown", event => {
     if (event.key !== "Escape") return;
-    modalController.closeAllModals();
+    if (modalController.hasOpenModal()) {
+      modalController.closeAllModals();
+      return;
+    }
+    if (renderer.hasVisibleResultPopup()) {
+      renderer.clearResultPopups();
+      simulation.clearCellEffects();
+      return;
+    }
   });
   document.addEventListener("click", event => {
     if (!event.target.closest(".result")) return;

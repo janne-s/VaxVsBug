@@ -1,5 +1,6 @@
 import {
   CELL_COUNT,
+  GRID_SIZE,
   PANEL_KEYS,
   PERCENT_SCALE,
   PROBABILITY_BASIS,
@@ -14,17 +15,27 @@ export function createRenderer(app, model) {
     const fragment = document.createDocumentFragment();
 
     for (let index = 0; index < CELL_COUNT; index += 1) {
-      fragment.appendChild(createCell(index));
+      fragment.appendChild(createCell(view, index));
     }
 
+    view.grid.tabIndex = 0;
+    view.grid.setAttribute("role", "grid");
+    view.grid.setAttribute("aria-rowcount", String(GRID_SIZE));
+    view.grid.setAttribute("aria-colcount", String(GRID_SIZE));
     view.grid.appendChild(fragment);
     view.cells = Array.from(view.grid.children);
+    view.activeIndex = 0;
+    syncGridFocusState(view);
   }
 
-  function createCell(index) {
+  function createCell(view, index) {
     const cell = document.createElement("div");
     cell.className = "cell";
+    cell.id = `${view.key}-cell-${index}`;
     cell.dataset.index = String(index);
+    cell.setAttribute("role", "gridcell");
+    cell.setAttribute("aria-rowindex", String(Math.floor(index / GRID_SIZE) + 1));
+    cell.setAttribute("aria-colindex", String((index % GRID_SIZE) + 1));
     return cell;
   }
 
@@ -87,8 +98,22 @@ export function createRenderer(app, model) {
 
   function paintGrid(view, distribution) {
     view.cells.forEach((cell, index) => {
-      cell.className = distribution[index]?.className || "cell";
+      const entry = distribution[index];
+      cell.className = entry?.className || "cell";
+      cell.setAttribute("aria-label", getCellAriaLabel(view, entry?.outcome || null));
     });
+    syncGridFocusState(view);
+  }
+
+  function getCellAriaLabel(view, outcome) {
+    const fallback = t(RESULT_FALLBACK_KEYS[view.key]);
+    if (!outcome) return fallback;
+
+    const label = outcome.isRare && !outcome.secondaryTitle
+      ? `${t("Rare effect:")} ${t(outcome.label)}`
+      : t(outcome.label);
+    const description = outcome.description ? t(outcome.description) : "";
+    return description ? `${label}. ${description}` : label;
   }
 
   function renderPanelLegend(view, primaryOutcomes, gridEntries, probabilityBasis) {
@@ -140,6 +165,7 @@ export function createRenderer(app, model) {
     const body = document.createElement("div");
     const list = document.createElement("ul");
 
+    summary.tabIndex = 0;
     body.className = "rare-effects-body";
     body.appendChild(list);
     container.replaceChildren(summary, body);
@@ -201,11 +227,13 @@ export function createRenderer(app, model) {
     if (!text) {
       element.replaceChildren();
       element.classList.remove("is-visible");
+      element.setAttribute("aria-hidden", "true");
       return;
     }
 
     element.replaceChildren(createResultFragment(text));
     element.classList.add("is-visible");
+    element.setAttribute("aria-hidden", "false");
   }
 
   function createResultFragment(text) {
@@ -245,6 +273,10 @@ export function createRenderer(app, model) {
 
   function clearResultPopups() {
     PANEL_KEYS.forEach(panel => setResultPopup(views[panel].result, ""));
+  }
+
+  function hasVisibleResultPopup() {
+    return PANEL_KEYS.some(panel => views[panel].result.classList.contains("is-visible"));
   }
 
   function buildResultContent(outcome, fallback) {
@@ -301,6 +333,24 @@ export function createRenderer(app, model) {
     elements.slider.style.setProperty(SLIDER_POSITION_PROPERTY, `${value}%`);
   }
 
+  function setGridActiveCell(view, index) {
+    if (!view.cells.length) return;
+
+    const nextIndex = Math.max(0, Math.min(CELL_COUNT - 1, index));
+    view.activeIndex = nextIndex;
+    syncGridFocusState(view);
+  }
+
+  function syncGridFocusState(view) {
+    const activeIndex = typeof view.activeIndex === "number" ? view.activeIndex : 0;
+    view.grid.setAttribute("aria-activedescendant", `${view.key}-cell-${activeIndex}`);
+
+    view.cells.forEach((cell, index) => {
+      const isActive = index === activeIndex;
+      cell.classList.toggle("keyboard-active", isActive);
+    });
+  }
+
   function applyStaticTranslations() {
     document.documentElement.lang = state.lang;
     document.title = t("VaxVsBug");
@@ -309,7 +359,10 @@ export function createRenderer(app, model) {
     elements.vaccineHeading.textContent = t("Vaccination effects");
     elements.diseaseHeading.textContent = t("Infection effects");
     elements.testButton.textContent = t("Try your luck");
-    elements.aboutButton.setAttribute("aria-label", "About");
+    elements.aboutButton.textContent = t("About");
+    elements.aboutButton.setAttribute("aria-label", t("About"));
+    elements.aboutTitle.textContent = t("About");
+    elements.aboutClose.setAttribute("aria-label", t("Close about panel"));
     elements.sourcesButton.textContent = t("Sources");
     elements.sourcesButton.setAttribute("aria-label", t("Sources"));
     elements.sourcesTitle.textContent = t("Sources");
@@ -438,14 +491,17 @@ export function createRenderer(app, model) {
     buildResultContent,
     clearResultPopups,
     createGrid,
+    hasVisibleResultPopup,
     paintGrid,
     populateDiseaseSelect,
     render,
     revealPanelResult,
     renderSourcesContent,
     resetRareEffectsState,
+    setGridActiveCell,
     setErrorState,
     setResultPopup,
+    syncGridFocusState,
     syncRareEffectsHeight
   };
 }
