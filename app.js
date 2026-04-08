@@ -117,6 +117,7 @@ async function init() {
 }
 
 function bindEvents() {
+  bindInputModalityTracking();
   elements.slider.addEventListener("input", renderer.render);
   elements.diseaseSelect.addEventListener("change", event => {
     state.diseaseIndex = Number(event.target.value) || 0;
@@ -175,6 +176,36 @@ function updateUrlState() {
     url.searchParams.set("disease", state.data.diseases[state.diseaseIndex].slug);
   }
   window.history.replaceState({}, "", url);
+}
+
+function bindInputModalityTracking() {
+  document.documentElement.dataset.inputModality = "pointer";
+
+  document.addEventListener("keydown", event => {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+
+    const keyboardKeys = [
+      "Tab",
+      "ArrowUp",
+      "ArrowDown",
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End",
+      "PageUp",
+      "PageDown",
+      "Enter",
+      " "
+    ];
+
+    if (keyboardKeys.includes(event.key)) {
+      document.documentElement.dataset.inputModality = "keyboard";
+    }
+  }, true);
+
+  document.addEventListener("pointerdown", () => {
+    document.documentElement.dataset.inputModality = "pointer";
+  }, true);
 }
 
 function scheduleResizeRender() {

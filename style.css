@@ -228,7 +228,7 @@ select {
     background-color 160ms var(--motion-smooth);
 }
 
-select:focus-visible {
+html[data-input-modality="keyboard"] select:focus {
   border-color: rgba(47, 120, 207, 0.32);
   box-shadow: 0 0 0 3px rgba(47, 120, 207, 0.12);
 }
@@ -528,6 +528,7 @@ input[type="range"]::-moz-range-thumb {
 .seo-landing {
   display: grid;
   gap: 0.45rem;
+  position: relative;
   padding: 0 var(--space-x);
   font-size: var(--text-sm);
   line-height: 1.35;
@@ -569,14 +570,14 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 0;
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--blue);
   background: none;
   box-shadow: none;
 }
 
 .footnote-link:hover,
 .footnote-link:focus-visible {
-  color: var(--text);
+  color: var(--blue);
   box-shadow: none;
   text-decoration: underline;
 }
@@ -989,7 +990,7 @@ button {
     filter: drop-shadow(0 14px 22px var(--shadow-soft)) brightness(1.03);
   }
 
-  button:hover:not(:disabled) {
+  #testButton:hover:not(:disabled) {
     transform: translateY(-1px);
     filter: brightness(1.03) saturate(1.02);
     box-shadow:
