@@ -1,5 +1,7 @@
 :root {
+  --bg-mobile-top: #f3e7d0;
   --bg-mobile: #eadfc8;
+  --bg-desktop-top: #eef2f7;
   --bg-desktop: #e3e8ef;
   --surface: rgba(255, 250, 242, 0.84);
   --surface-strong: #fffef9;
@@ -70,6 +72,10 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  background:
+    radial-gradient(circle at center -8rem, rgba(255, 255, 255, 0.68), transparent 34%),
+    linear-gradient(180deg, var(--bg-mobile-top) 0%, var(--bg-mobile) 100%);
+  background-color: var(--bg-mobile-top);
 }
 
 body {
@@ -77,9 +83,7 @@ body {
   min-height: 100vh;
   font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.68), transparent 32%),
-    linear-gradient(180deg, #f3e7d0 0%, var(--bg-mobile) 100%);
+  background: transparent;
 }
 
 a,
@@ -123,6 +127,10 @@ p {
   min-height: 100svh;
   min-height: 100dvh;
   padding: var(--space-y);
+  padding-top: calc(var(--space-y) + env(safe-area-inset-top, 0px));
+  padding-right: calc(var(--space-x) + env(safe-area-inset-right, 0px));
+  padding-bottom: calc(var(--space-y) + env(safe-area-inset-bottom, 0px) + 0.9rem);
+  padding-left: calc(var(--space-x) + env(safe-area-inset-left, 0px));
 }
 
 .app-layout {
@@ -342,6 +350,8 @@ input[type="range"]::-moz-range-thumb {
   display: grid;
   grid-template-columns: repeat(10, minmax(0, 1fr));
   gap: 1px;
+  aspect-ratio: 1;
+  min-height: 0;
   outline: none;
 }
 
@@ -501,9 +511,48 @@ input[type="range"]::-moz-range-thumb {
 
 .app-footnote {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: var(--gap);
   padding-inline: var(--space-x);
+  padding-bottom: max(0.25rem, env(safe-area-inset-bottom, 0px));
+}
+
+.seo-landing {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0 var(--space-x);
+  font-size: var(--text-sm);
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.seo-landing h1 {
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.seo-landing p,
+.seo-landing ul {
+  margin: 0;
+}
+
+.seo-landing ul {
+  padding-left: 1rem;
+}
+
+.seo-landing-links {
+  color: var(--muted);
+}
+
+.seo-landing-links a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.seo-landing-links a:hover,
+.seo-landing-links a:focus-visible {
+  text-decoration: underline;
 }
 
 .footnote-link {
@@ -520,7 +569,7 @@ input[type="range"]::-moz-range-thumb {
 
 .footnote-link:hover,
 .footnote-link:focus-visible {
-  color: var(--blue);
+  color: var(--text);
   box-shadow: none;
   text-decoration: underline;
 }
@@ -995,10 +1044,15 @@ button:disabled {
     --text-panel-title: 0.92rem;
   }
 
-  body {
+  html {
     background:
-      radial-gradient(circle at top, rgba(255, 255, 255, 0.7), transparent 30%),
-      linear-gradient(180deg, #eef2f7 0%, var(--bg-desktop) 100%);
+      radial-gradient(circle at center -9rem, rgba(255, 255, 255, 0.7), transparent 32%),
+      linear-gradient(180deg, var(--bg-desktop-top) 0%, var(--bg-desktop) 100%);
+    background-color: var(--bg-desktop-top);
+  }
+
+  body {
+    background: transparent;
   }
 
   .app-layout {
