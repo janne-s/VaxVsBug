@@ -72,10 +72,6 @@ export function createRenderer(app, model) {
   function render(options = {}) {
     const renderOptions = normalizeRenderOptions(options);
     renderContent(renderOptions);
-
-    if (renderOptions.transition === "intro") {
-      animateIntroRender();
-    }
   }
 
   function normalizeRenderOptions(options) {
@@ -112,40 +108,6 @@ export function createRenderer(app, model) {
     renderPanelLegend(views.vaccine, vaccine.outcomes, state.gridEntries.vaccine, PROBABILITY_BASIS.vaccine);
     renderPanelLegend(views.disease, diseaseLegendOutcomes, state.gridEntries.disease, PROBABILITY_BASIS.disease);
     options.afterRender?.();
-  }
-
-  function animateIntroRender() {
-    if (prefersReducedMotion()) return;
-
-    requestAnimationFrame(() => {
-      setRenderTransitionState("is-rendering-in");
-      window.setTimeout(() => {
-        clearRenderTransitionState();
-      }, 180);
-    });
-  }
-
-  function getRenderTransitionTargets() {
-    return PANEL_KEYS
-      .map(panel => views[panel].grid.closest(".panel"))
-      .filter(Boolean);
-  }
-
-  function setRenderTransitionState(stateClass) {
-    getRenderTransitionTargets().forEach(target => {
-      target.classList.remove("is-rendering-in");
-      target.classList.add(stateClass);
-    });
-  }
-
-  function clearRenderTransitionState() {
-    getRenderTransitionTargets().forEach(target => {
-      target.classList.remove("is-rendering-in");
-    });
-  }
-
-  function prefersReducedMotion() {
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
   function paintGrid(view, distribution) {
@@ -392,6 +354,7 @@ export function createRenderer(app, model) {
     view.activeIndex = nextIndex;
     syncGridFocusState(view);
   }
+
 
   function syncGridFocusState(view) {
     const activeIndex = typeof view.activeIndex === "number" ? view.activeIndex : 0;

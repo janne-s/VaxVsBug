@@ -106,7 +106,7 @@ async function init() {
 
     elements.slider.value = DEFAULT_SLIDER_VALUE;
     elements.diseaseSelect.value = String(state.diseaseIndex);
-    renderer.render({ transition: "intro" });
+    renderer.render();
   } catch (error) {
     renderer.setErrorState();
     console.error(error);

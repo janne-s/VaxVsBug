@@ -350,8 +350,6 @@ input[type="range"]::-moz-range-thumb {
   display: grid;
   grid-template-columns: repeat(10, minmax(0, 1fr));
   gap: 1px;
-  aspect-ratio: 1;
-  min-height: 0;
   outline: none;
 }
 
@@ -507,31 +505,6 @@ input[type="range"]::-moz-range-thumb {
   min-height: 1.4em;
   color: var(--muted);
   font-weight: 700;
-}
-
-.panel-head,
-.grid,
-.panel-legend,
-.rare-effects,
-.metric {
-  transform: translateY(0);
-}
-
-.panel.is-rendering-in .panel-head,
-.panel.is-rendering-in .grid,
-.panel.is-rendering-in .panel-legend,
-.panel.is-rendering-in .rare-effects,
-.panel.is-rendering-in .metric {
-  animation: panelContentIn 180ms var(--motion-smooth) both;
-}
-
-.panel.is-rendering-in .panel-legend,
-.panel.is-rendering-in .rare-effects {
-  animation-delay: 20ms;
-}
-
-.panel.is-rendering-in .metric {
-  animation-delay: 34ms;
 }
 
 .app-footnote {
@@ -782,19 +755,6 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 4px;
   box-shadow: inset 0 0 0 1px var(--cell-line-strong);
 }
-
-@keyframes panelContentIn {
-  from {
-    opacity: 0;
-    transform: translateY(0.26rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 .swatch.mild {
   background: var(--mild);
