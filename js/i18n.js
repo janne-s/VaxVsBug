@@ -17,8 +17,7 @@ export function resolveLanguage() {
   const requested = normalizeLanguageCode(params.get("lang"));
   if (requested) return requested;
 
-  const browserLanguage = normalizeLanguageCode(navigator.language);
-  return browserLanguage || DEFAULT_LANGUAGE;
+  return DEFAULT_LANGUAGE;
 }
 
 export function createTranslator(state) {
