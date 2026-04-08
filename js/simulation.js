@@ -19,8 +19,10 @@ const ANIMATION_EFFECT_CLASSES = GRID_EFFECT_CLASSES.filter(className => classNa
 
 export function createSimulation(app, model, renderer) {
   const { elements, views, t } = app;
+  let shouldRestoreButtonFocus = true;
 
-  async function runSimulation() {
+  async function runSimulation(options = {}) {
+    shouldRestoreButtonFocus = options.restoreFocus ?? true;
     const disease = model.getCurrentDisease();
     const vaccine = disease.vaccine;
     const infectionRisk = model.getInfectionRisk(disease, model.getVaccinationRate());
@@ -120,15 +122,41 @@ export function createSimulation(app, model, renderer) {
     elements.testButton.disabled = isRolling;
     if (isRolling) restartDiceAnimation();
     if (!isRolling) {
-      elements.dice.classList.remove("is-rolling");
-      elements.testButton.focus({ preventScroll: true });
+      stopDiceAnimation();
+      if (shouldRestoreButtonFocus) {
+        elements.testButton.focus({ preventScroll: true });
+      }
     }
   }
 
   function restartDiceAnimation() {
+    elements.dice.style.transform = "";
+    elements.dice.style.filter = "";
     elements.dice.classList.remove("is-rolling");
     void elements.dice.offsetWidth;
     elements.dice.classList.add("is-rolling");
+  }
+
+  function stopDiceAnimation() {
+    const dice = elements.dice;
+    const isHovered = dice.matches(":hover");
+
+    if (!isHovered) {
+      dice.style.transform = "";
+      dice.style.filter = "";
+      dice.classList.remove("is-rolling");
+      return;
+    }
+
+    const computed = window.getComputedStyle(dice);
+    dice.style.transform = computed.transform === "none" ? "translateZ(0)" : computed.transform;
+    dice.style.filter = computed.filter;
+    dice.classList.remove("is-rolling");
+
+    requestAnimationFrame(() => {
+      dice.style.transform = "";
+      dice.style.filter = "";
+    });
   }
 
   async function animateDiseaseFocus(view, targetIndex) {

@@ -91,6 +91,7 @@ const model = createModel(app);
 const renderer = createRenderer(app, model);
 const modalController = createModalController(app, renderer);
 const simulation = createSimulation(app, model, renderer);
+let resizeFrame = 0;
 
 init();
 
@@ -126,7 +127,11 @@ function bindEvents() {
   elements.languageSelect.addEventListener("change", event => {
     void changeLanguage(event.target.value);
   });
-  elements.testButton.addEventListener("click", simulation.runSimulation);
+  elements.testButton.addEventListener("click", () => simulation.runSimulation({ restoreFocus: true }));
+  elements.dice?.addEventListener("click", () => {
+    if (elements.testButton.disabled) return;
+    simulation.runSimulation({ restoreFocus: false });
+  });
   PANEL_KEYS.forEach(panel => {
     views[panel].grid.addEventListener("click", event => simulation.handleGridClick(event, panel));
     views[panel].grid.addEventListener("keydown", event => simulation.handleGridKeydown(event, panel));
@@ -148,6 +153,7 @@ function bindEvents() {
     if (!event.target.closest(".result")) return;
     renderer.clearResultPopups();
   });
+  window.addEventListener("resize", scheduleResizeRender, { passive: true });
 }
 
 async function changeLanguage(lang) {
@@ -169,4 +175,13 @@ function updateUrlState() {
     url.searchParams.set("disease", state.data.diseases[state.diseaseIndex].slug);
   }
   window.history.replaceState({}, "", url);
+}
+
+function scheduleResizeRender() {
+  if (!state.data) return;
+  if (resizeFrame) cancelAnimationFrame(resizeFrame);
+  resizeFrame = requestAnimationFrame(() => {
+    resizeFrame = 0;
+    renderer.render();
+  });
 }

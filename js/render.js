@@ -82,6 +82,8 @@ export function createRenderer(app, model) {
     return options;
   }
 
+  let headingBalanceFrame = 0;
+
   function renderContent(options = {}) {
     applyStaticTranslations();
     const disease = model.getCurrentDisease();
@@ -107,6 +109,7 @@ export function createRenderer(app, model) {
     paintGrid(views.disease, state.gridEntries.disease);
     renderPanelLegend(views.vaccine, vaccine.outcomes, state.gridEntries.vaccine, PROBABILITY_BASIS.vaccine);
     renderPanelLegend(views.disease, diseaseLegendOutcomes, state.gridEntries.disease, PROBABILITY_BASIS.disease);
+    scheduleHeadingBalance();
     options.afterRender?.();
   }
 
@@ -345,6 +348,70 @@ export function createRenderer(app, model) {
 
   function setSliderPosition(value) {
     elements.slider.style.setProperty(SLIDER_POSITION_PROPERTY, `${value}%`);
+  }
+
+  function scheduleHeadingBalance() {
+    if (headingBalanceFrame) cancelAnimationFrame(headingBalanceFrame);
+    headingBalanceFrame = requestAnimationFrame(() => {
+      headingBalanceFrame = 0;
+      balanceComparisonHeadings();
+    });
+  }
+
+  function balanceComparisonHeadings() {
+    const headings = [elements.vaccineHeading, elements.diseaseHeading].filter(Boolean);
+    headings.forEach(resetHeadingBalance);
+
+    const measurements = headings.map(element => ({
+      element,
+      ...measureHeading(element)
+    }));
+
+    if (measurements.length !== 2) return;
+
+    const sorted = [...measurements].sort((a, b) => a.lines - b.lines);
+    const shorter = sorted[0];
+    const taller = sorted[1];
+
+    if (taller.lines <= 1 || shorter.lines !== 1 || taller.lines === shorter.lines) return;
+
+    const targetLines = taller.lines;
+    let matchedWidth = null;
+
+    for (let percent = 98; percent >= 72; percent -= 2) {
+      shorter.element.style.maxWidth = `${percent}%`;
+      const { lines } = measureHeading(shorter.element);
+      if (lines >= targetLines) {
+        matchedWidth = `${percent}%`;
+        break;
+      }
+    }
+
+    if (!matchedWidth) {
+      resetHeadingBalance(shorter.element);
+      return;
+    }
+
+    shorter.element.style.maxWidth = matchedWidth;
+  }
+
+  function resetHeadingBalance(element) {
+    element.style.maxWidth = '';
+  }
+
+  function measureHeading(element) {
+    const style = window.getComputedStyle(element);
+    let lineHeight = Number.parseFloat(style.lineHeight);
+
+    if (!Number.isFinite(lineHeight)) {
+      const fontSize = Number.parseFloat(style.fontSize) || 16;
+      lineHeight = fontSize * 1.2;
+    }
+
+    const height = element.getBoundingClientRect().height;
+    const lines = Math.max(1, Math.round(height / lineHeight));
+
+    return { height, lines };
   }
 
   function setGridActiveCell(view, index) {
