@@ -69,7 +69,24 @@ export function createRenderer(app, model) {
     }, new Map());
   }
 
-  function render() {
+  function render(options = {}) {
+    const renderOptions = normalizeRenderOptions(options);
+    renderContent(renderOptions);
+
+    if (renderOptions.transition === "intro") {
+      animateIntroRender();
+    }
+  }
+
+  function normalizeRenderOptions(options) {
+    if (!options || typeof options !== "object" || "target" in options) {
+      return {};
+    }
+
+    return options;
+  }
+
+  function renderContent(options = {}) {
     applyStaticTranslations();
     const disease = model.getCurrentDisease();
     const vaccine = disease.vaccine;
@@ -94,6 +111,41 @@ export function createRenderer(app, model) {
     paintGrid(views.disease, state.gridEntries.disease);
     renderPanelLegend(views.vaccine, vaccine.outcomes, state.gridEntries.vaccine, PROBABILITY_BASIS.vaccine);
     renderPanelLegend(views.disease, diseaseLegendOutcomes, state.gridEntries.disease, PROBABILITY_BASIS.disease);
+    options.afterRender?.();
+  }
+
+  function animateIntroRender() {
+    if (prefersReducedMotion()) return;
+
+    requestAnimationFrame(() => {
+      setRenderTransitionState("is-rendering-in");
+      window.setTimeout(() => {
+        clearRenderTransitionState();
+      }, 180);
+    });
+  }
+
+  function getRenderTransitionTargets() {
+    return PANEL_KEYS
+      .map(panel => views[panel].grid.closest(".panel"))
+      .filter(Boolean);
+  }
+
+  function setRenderTransitionState(stateClass) {
+    getRenderTransitionTargets().forEach(target => {
+      target.classList.remove("is-rendering-in");
+      target.classList.add(stateClass);
+    });
+  }
+
+  function clearRenderTransitionState() {
+    getRenderTransitionTargets().forEach(target => {
+      target.classList.remove("is-rendering-in");
+    });
+  }
+
+  function prefersReducedMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
   function paintGrid(view, distribution) {
