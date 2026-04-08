@@ -6,6 +6,7 @@ import { createRenderer } from "./js/render.js";
 import { createSimulation } from "./js/simulation.js";
 
 const elements = {
+  appShell: document.querySelector(".app-shell"),
   diseaseGrid: document.getElementById("diseaseGrid"),
   vaccineGrid: document.getElementById("vaccineGrid"),
   diseaseResult: document.getElementById("diseaseResult"),
@@ -107,6 +108,7 @@ async function init() {
     elements.slider.value = DEFAULT_SLIDER_VALUE;
     elements.diseaseSelect.value = String(state.diseaseIndex);
     renderer.render();
+    elements.appShell?.classList.add("is-ready");
   } catch (error) {
     renderer.setErrorState();
     console.error(error);

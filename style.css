@@ -142,6 +142,15 @@ p {
   min-height: calc(100dvh - (var(--space-y) * 2));
 }
 
+.app-shell:not(.is-ready) .comparison {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app-shell:not(.is-ready) .panel {
+  min-height: clamp(13rem, 44vw, 22rem);
+}
+
 .topbar,
 .community-card,
 .panel,
