@@ -9,7 +9,7 @@
     },
     {
       "type": "paragraph",
-      "text": "O aplicativo enfatiza interação, atmosfera e um enquadramento educativo amplo."
+      "text": "O aplicativo enfatiza a interação e a proposta educativa."
     },
     {
       "type": "paragraph",
@@ -297,7 +297,8 @@
     "A small minority of acute infections can cause sudden life-threatening liver failure": "Uma pequena minoria das infecções agudas pode causar insuficiência hepática fulminante com risco de vida",
     "No side effects": "Sem efeitos colaterais",
     "No infection": "Sem infecção",
-    "Possible long-term consequences": "Possíveis consequências de longo prazo"
+    "Possible long-term consequences": "Possíveis consequências de longo prazo",
+    "Long-term consequence": "Consequência de longo prazo"
   },
   "templates": {
     "summary.vaccine": "{count} de 100 podem notar efeitos colaterais",

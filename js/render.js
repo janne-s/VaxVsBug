@@ -10,6 +10,10 @@ import {
 
 export function createRenderer(app, model) {
   const { elements, views, state, t, tf } = app;
+  const HTML_LANGUAGE_CODES = {
+    pt: "pt-BR",
+    zh: "zh-CN"
+  };
 
   function createGrid(view) {
     const fragment = document.createDocumentFragment();
@@ -202,6 +206,7 @@ export function createRenderer(app, model) {
       const probability = document.createElement("span");
 
       label.textContent = t(outcome.label);
+      label.setAttribute("dir", "auto");
       probability.textContent = model.formatProbability(model.getDisplayProbability(outcome), probabilityBasis);
       item.append(label, probability);
       fragment.appendChild(item);
@@ -284,6 +289,7 @@ export function createRenderer(app, model) {
   function createTextBlock(tagName, className, text) {
     const element = document.createElement(tagName);
     element.className = className;
+    element.setAttribute("dir", "auto");
     element.textContent = text;
     return element;
   }
@@ -434,7 +440,8 @@ export function createRenderer(app, model) {
   }
 
   function applyStaticTranslations() {
-    document.documentElement.lang = state.lang;
+    document.documentElement.lang = HTML_LANGUAGE_CODES[state.lang] || state.lang;
+    document.documentElement.dir = state.lang === "ar" ? "rtl" : "ltr";
     document.title = t("VaxVsBug");
     elements.languageSelect.value = state.lang;
     elements.communityTitle.textContent = t("Vaccine Rate in Your Community");
@@ -527,6 +534,7 @@ export function createRenderer(app, model) {
     const links = getUniqueLinks(items, mapItem);
     const paragraph = document.createElement("p");
     paragraph.className = className;
+    paragraph.setAttribute("dir", "auto");
 
     links.forEach((link, index) => {
       if (index > 0) {
@@ -540,6 +548,7 @@ export function createRenderer(app, model) {
       anchor.href = link.url;
       anchor.target = "_blank";
       anchor.rel = "noopener noreferrer";
+      anchor.setAttribute("dir", "auto");
       anchor.textContent = link.label;
       paragraph.appendChild(anchor);
     });

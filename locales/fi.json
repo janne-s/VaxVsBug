@@ -9,7 +9,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Sovellus painottaa vuorovaikutusta, tunnelmaa ja yleistä opetuksellista kehystystä."
+      "text": "Sovellus painottaa vuorovaikutusta ja opetuksellisuutta."
     },
     {
       "type": "paragraph",
@@ -199,7 +199,6 @@
     "Some children may be more tired or eat less for a short time after vaccination": "Osa lapsista voi olla tavallista väsyneempiä tai syödä huonommin lyhyen aikaa rokotuksen jälkeen",
     "High fever or stomach upset": "Korkea kuume tai vatsavaiva",
     "Less common higher fever, vomiting, or diarrhea after vaccination": "Harvinaisempaa korkeampaa kuumetta, oksentelua tai ripulia rokotuksen jälkeen",
-    "Allergic-type reaction": "Allergistyyppinen reaktio",
     "Very rare allergic-type reaction that may need urgent care": "Erittäin harvinainen allergistyyppinen reaktio, joka voi vaatia kiireellistä hoitoa",
     "Temporary fever or rash": "Tilapäinen kuume tai ihottuma",
     "Fever or rash": "Kuume tai ihottuma",
@@ -298,7 +297,8 @@
     "New muscle weakness, fatigue, and joint pain can appear 15 to 40 years after the original infection in some polio survivors": "Uutta lihasheikkoutta, väsymystä ja nivelkipua voi ilmetä 15-40 vuotta alkuperäisen infektion jälkeen osalla polion sairastaneista",
     "Fulminant liver failure": "Äkillinen maksan vajaatoiminta",
     "Liver failure": "Maksan vajaatoiminta",
-    "A small minority of acute infections can cause sudden life-threatening liver failure": "Pieni osa akuuteista infektioista voi aiheuttaa äkillisen henkeä uhkaavan maksan vajaatoiminnan"
+    "A small minority of acute infections can cause sudden life-threatening liver failure": "Pieni osa akuuteista infektioista voi aiheuttaa äkillisen henkeä uhkaavan maksan vajaatoiminnan",
+    "Long-term consequence": "Pitkäaikaisvaikutus"
   },
   "templates": {
     "summary.vaccine": "Haittavaikutuksia esiintyy {count} / 100 rokotetulla",

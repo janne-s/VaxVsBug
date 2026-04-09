@@ -9,7 +9,7 @@
     },
     {
       "type": "paragraph",
-      "text": "L’application met l’accent sur l’interaction, l’atmosphère et un cadrage éducatif général."
+      "text": "L’application met l’accent sur l’interaction et l’apprentissage."
     },
     {
       "type": "paragraph",
@@ -297,7 +297,8 @@
     "A small minority of acute infections can cause sudden life-threatening liver failure": "Une petite minorité des infections aiguës peut provoquer une insuffisance hépatique aiguë mettant la vie en danger",
     "No side effects": "Aucun effet secondaire",
     "No infection": "Aucune infection",
-    "Possible long-term consequences": "Conséquences possibles à long terme"
+    "Possible long-term consequences": "Conséquences possibles à long terme",
+    "Long-term consequence": "Conséquence à long terme"
   },
   "templates": {
     "summary.vaccine": "{count} sur 100 peuvent remarquer des effets secondaires",

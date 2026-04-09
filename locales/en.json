@@ -9,7 +9,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The app emphasizes interaction, atmosphere, and broad educational framing."
+      "text": "The app emphasizes interaction and education."
     },
     {
       "type": "paragraph",
@@ -285,7 +285,6 @@
     "Severe watery diarrhea, vomiting, fever, and stomach pain can last for several days": "Severe watery diarrhea, vomiting, fever, and stomach pain can last for several days",
     "Some children may be more tired or eat less for a short time after vaccination": "Some children may be more tired or eat less for a short time after vaccination",
     "Less common higher fever, vomiting, or diarrhea after vaccination": "Less common higher fever, vomiting, or diarrhea after vaccination",
-    "Allergic-type reaction": "Allergic-type reaction",
     "Very rare allergic-type reaction that may need urgent care": "Very rare allergic-type reaction that may need urgent care",
     "Sore arm": "Sore arm",
     "Vomiting and diarrhea": "Vomiting and diarrhea",
@@ -295,7 +294,11 @@
     "Usually mild pain, tenderness, or brief fever after vaccination": "Usually mild pain, tenderness, or brief fever after vaccination",
     "Usually mild soreness or a brief fever after vaccination": "Usually mild soreness or a brief fever after vaccination",
     "Headache or tiredness can happen briefly after vaccination": "Headache or tiredness can happen briefly after vaccination",
-    "A small minority of acute infections can cause sudden life-threatening liver failure": "A small minority of acute infections can cause sudden life-threatening liver failure"
+    "A small minority of acute infections can cause sudden life-threatening liver failure": "A small minority of acute infections can cause sudden life-threatening liver failure",
+    "No side effects": "No side effects",
+    "No infection": "No infection",
+    "Possible long-term consequences": "Possible long-term consequences",
+    "Long-term consequence": "Long-term consequence"
   },
   "templates": {
     "summary.vaccine": "{count} out of 100 may notice side effects",

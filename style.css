@@ -86,6 +86,10 @@ body {
   background: transparent;
 }
 
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
 a,
 button,
 summary,
@@ -227,6 +231,14 @@ select {
     background-color 160ms var(--motion-smooth);
 }
 
+html[dir="rtl"] select {
+  padding: var(--space-y) var(--space-x) var(--space-y) 2rem;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--text) 50%) left 0.5rem center / 8px 8px no-repeat,
+    linear-gradient(135deg, var(--text) 50%, transparent 50%) left 0.875rem center / 8px 8px no-repeat,
+    var(--surface-strong);
+}
+
 html[data-input-modality="keyboard"] select:focus {
   border-color: rgba(47, 120, 207, 0.32);
   box-shadow: 0 0 0 3px rgba(47, 120, 207, 0.12);
@@ -236,6 +248,11 @@ html[data-input-modality="keyboard"] select:focus {
   padding-right: 1.6rem;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+html[dir="rtl"] .lang-field select {
+  padding-left: 1.6rem;
+  padding-right: var(--space-x);
 }
 
 .info-button,
@@ -300,6 +317,16 @@ input[type="range"] {
     var(--slider-rest) 100%
   );
   outline: none;
+}
+
+html[dir="rtl"] input[type="range"] {
+  background: linear-gradient(
+    270deg,
+    var(--slider-fill-start) 0%,
+    var(--slider-fill-end) var(--slider-position, 50%),
+    var(--slider-rest) var(--slider-position, 50%),
+    var(--slider-rest) 100%
+  );
 }
 
 input[type="range"]:focus-visible {
@@ -590,6 +617,15 @@ input[type="range"]::-moz-range-thumb {
   gap: var(--gap);
   padding-inline: var(--space-x);
   padding-bottom: max(0.25rem, env(safe-area-inset-bottom, 0px));
+}
+
+html[dir="rtl"] .action-row,
+html[dir="rtl"] .app-footnote {
+  direction: rtl;
+}
+
+html[dir="rtl"] .app-footnote {
+  justify-content: flex-start;
 }
 
 .seo-landing {
@@ -939,6 +975,13 @@ input[type="range"]::-moz-range-thumb {
   gap: var(--gap);
 }
 
+.about-panel .about-content,
+.about-panel .about-content p,
+.about-panel .about-content a {
+  direction: ltr;
+  text-align: left;
+}
+
 .info-links {
   font-size: var(--text-sm);
   line-height: 1.35;
@@ -991,6 +1034,14 @@ input[type="range"]::-moz-range-thumb {
 
 .sources-links {
   color: var(--muted);
+}
+
+html[dir="rtl"] .sources-content,
+html[dir="rtl"] .sources-links,
+html[dir="rtl"] .sources-subhead,
+html[dir="rtl"] .sources-entry h3 {
+  direction: rtl;
+  text-align: right;
 }
 
 .info-links a,

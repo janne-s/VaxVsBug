@@ -9,7 +9,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Die App legt den Schwerpunkt auf Interaktion, Atmosphäre und einen breiten edukativen Rahmen."
+      "text": "Die App legt den Schwerpunkt auf Interaktion und Vermittlung."
     },
     {
       "type": "paragraph",
@@ -298,7 +298,7 @@
     "No side effects": "Keine Nebenwirkungen",
     "No infection": "Keine Infektion",
     "Possible long-term consequences": "Mögliche Langzeitfolgen",
-    "Comments, contributions, and new translations are welcome.": "Kommentare, Beiträge und neue Übersetzungen sind willkommen."
+    "Long-term consequence": "Langzeitfolge"
   },
   "templates": {
     "summary.vaccine": "{count} von 100 können Nebenwirkungen bemerken",
