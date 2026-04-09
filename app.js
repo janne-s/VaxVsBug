@@ -98,6 +98,7 @@ init();
 async function init() {
   try {
     state.lang = resolveLanguage();
+    elements.languageSelect.value = state.lang;
     state.messages = await loadMessages(state.lang);
     renderer.applyStaticTranslations();
     state.data = await model.loadData();
