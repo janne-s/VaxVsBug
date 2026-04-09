@@ -143,12 +143,11 @@ p {
 }
 
 .app-shell:not(.is-ready) .comparison {
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
-.app-shell:not(.is-ready) .panel {
-  min-height: clamp(13rem, 44vw, 22rem);
+.app-shell.is-ready .comparison-loading {
+  display: none;
 }
 
 .topbar,
@@ -343,11 +342,29 @@ input[type="range"]::-moz-range-thumb {
   gap: var(--gap);
 }
 
+.comparison-loading {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
 .panel {
   display: grid;
   gap: var(--gap-tight);
   align-content: start;
   position: relative;
+}
+
+.loading-panel {
+  display: grid;
+  gap: var(--gap-tight);
+  align-content: start;
+  min-height: clamp(13rem, 44vw, 22rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  padding: var(--space-y) var(--space-x);
 }
 
 .panel-head {
@@ -360,6 +377,56 @@ input[type="range"]::-moz-range-thumb {
   grid-template-columns: repeat(10, minmax(0, 1fr));
   gap: 1px;
   outline: none;
+}
+
+.loading-title {
+  width: 62%;
+  max-width: 11rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: rgba(35, 49, 79, 0.08);
+}
+
+.loading-panel:last-child .loading-title {
+  width: 58%;
+}
+
+.loading-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.loading-cell {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: rgba(35, 49, 79, 0.045);
+  box-shadow: inset 0 0 0 1px rgba(35, 49, 79, 0.04);
+}
+
+.loading-cell.is-worm {
+  animation: loadingWorm 1120ms var(--motion-smooth) infinite;
+  animation-delay: calc(var(--worm-order, 0) * 70ms);
+}
+
+.loading-meta {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.loading-meta span {
+  display: block;
+  height: 0.92rem;
+  border-radius: 999px;
+  background: rgba(35, 49, 79, 0.08);
+}
+
+.loading-meta span:first-child {
+  width: 72%;
+}
+
+.loading-meta span:last-child {
+  width: 64%;
 }
 
 .cell {
@@ -1031,6 +1098,21 @@ button:disabled {
 
   100% {
     transform: translateX(0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes loadingWorm {
+  0%,
+  100% {
+    background: rgba(35, 49, 79, 0.07);
+    box-shadow: inset 0 0 0 1px rgba(35, 49, 79, 0.06);
+    transform: scale(1);
+  }
+
+  45% {
+    background: rgba(35, 49, 79, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(35, 49, 79, 0.1);
+    transform: scale(1.04);
   }
 }
 

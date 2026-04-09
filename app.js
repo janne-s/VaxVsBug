@@ -97,6 +97,7 @@ init();
 
 async function init() {
   try {
+    initializeLoadingPanels();
     state.lang = resolveLanguage();
     elements.languageSelect.value = state.lang;
     state.messages = await loadMessages(state.lang);
@@ -216,4 +217,73 @@ function scheduleResizeRender() {
     resizeFrame = 0;
     renderer.render();
   });
+}
+
+function initializeLoadingPanels() {
+  document.querySelectorAll("[data-loading-grid]").forEach(grid => {
+    if (grid.dataset.initialized === "true") return;
+
+    const cells = buildLoadingCells(createRandomWormPath());
+    grid.replaceChildren(...cells);
+    grid.dataset.initialized = "true";
+  });
+}
+
+function buildLoadingCells(wormPath) {
+  const cells = [];
+  const wormIndexes = new Map(wormPath.map((index, order) => [index, order]));
+
+  for (let index = 0; index < 100; index += 1) {
+    const cell = document.createElement("span");
+    cell.className = "loading-cell";
+
+    if (wormIndexes.has(index)) {
+      cell.classList.add("is-worm");
+      cell.style.setProperty("--worm-order", String(wormIndexes.get(index)));
+    }
+
+    cells.push(cell);
+  }
+
+  return cells;
+}
+
+function createRandomWormPath(length = 11, size = 10) {
+  const start = Math.floor(Math.random() * size * size);
+  const path = [start];
+  const visited = new Set(path);
+  let current = start;
+
+  while (path.length < length) {
+    const neighbors = getLoadingNeighbors(current, size).filter(index => !visited.has(index));
+
+    if (neighbors.length) {
+      current = neighbors[Math.floor(Math.random() * neighbors.length)];
+      path.push(current);
+      visited.add(current);
+      continue;
+    }
+
+    const branches = path.filter(index =>
+      getLoadingNeighbors(index, size).some(neighbor => !visited.has(neighbor))
+    );
+
+    if (!branches.length) break;
+    current = branches[Math.floor(Math.random() * branches.length)];
+  }
+
+  return path;
+}
+
+function getLoadingNeighbors(index, size) {
+  const row = Math.floor(index / size);
+  const col = index % size;
+  const neighbors = [];
+
+  if (col > 0) neighbors.push(index - 1);
+  if (col < size - 1) neighbors.push(index + 1);
+  if (row > 0) neighbors.push(index - size);
+  if (row < size - 1) neighbors.push(index + size);
+
+  return neighbors;
 }
