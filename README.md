@@ -2,8 +2,8 @@
 
 VaxVsBug is a static educational web app that compares:
 
-- vaccination effects
-- infection effects
+- vaccine side effects
+- disease symptoms and outcomes
 - the effect of community vaccine rate on disease risk
 
 It is designed to be fast, lightweight, and easy to inspect or extend.
@@ -18,7 +18,7 @@ Live site:
 
 ## What It Does
 
-- compares vaccination and infection outcomes side by side
+- compares vaccine side effects with disease symptoms and outcomes side by side
 - visualizes risk with two 100-cell grids
 - lets the user adjust community vaccine rate
 - simulates one vaccination outcome and one infection outcome with `Try your luck`
@@ -32,7 +32,7 @@ VaxVsBug is an educational comparison tool.
 It is designed to illustrate how:
 
 - infectious disease risk changes with community vaccination
-- disease outcomes compare alongside vaccine side-effect risk in a simplified scenario
+- disease symptoms and outcomes compare alongside vaccine side-effect risk in a simplified scenario
 
 It does not provide real-world risk predictions or medical guidance.
 
@@ -124,6 +124,13 @@ Current languages:
 
 - English
 - Finnish
+- French
+- Spanish
+- German
+- Portuguese (Brazil)
+- Arabic
+- Japanese
+- Chinese (Simplified)
 
 The app is structured so more languages can be added through the locale files in [`locales/`](locales).
 
